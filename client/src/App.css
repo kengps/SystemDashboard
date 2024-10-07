@@ -1,0 +1,300 @@
+
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+}
+.AppHeader {
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4px 20px 4px 12px;
+  border-bottom: 2px solid lightgray;
+  margin-top: 10px;
+}
+.AppFooter {
+  height: 50px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 4px 20px 4px 12px;
+  border-top: 1px solid lightgray;
+}
+.SideMenu {
+  padding-left: 12px;
+}
+.PageContent {
+  margin-top: 12px;
+  padding-left: 12px;
+}
+.SideMenuAndPageContent {
+  display: flex;
+  flex: 1;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.FormCase {
+  display: flex;
+
+  padding: 4px 20px 4px 12px;
+  width: 35rem;
+  height: 100vh;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.searchCase {
+  width: 50%;
+  float: right;
+}
+.inputSearch {
+  width: 75%;
+  float: right;
+}
+.btn-1 {
+  width: 50px;
+  height: 35px;
+  float: right;
+}
+.no-hover:hover {
+  cursor: default;
+}
+.no-outline:focus {
+  outline: none;
+}
+
+.btn-change {
+  background-color: #ffc107;
+  color: white;
+}
+.btn-copy {
+  background-color : #ffc107;
+  color: white;
+}
+.btn-change:hover {
+  color: white;
+}
+
+.btn-change1 {
+  background-color: #049c02;
+  color: white;
+  margin-top: -10px;
+}
+.btn-change1:hover {
+  color: white;
+}
+
+@keyframes blinking {
+  0% {
+    opacity: 0;
+  }
+
+  25% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 1;
+  }
+  75% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+.redirectLogin {
+  text-align: center;
+  position: relative;
+  height: 100px;
+  margin: 30px;
+  font-size: large;
+  font-weight: "Bold";
+  //animation: cycle 1s infinite;
+  text-shadow: 0px 0px 100px rgba(11, 124, 199, 0.5);
+}
+
+@keyframes color-change {
+  0% {
+    color: red;
+  }
+  50% {
+    color: blue;
+  }
+  100% {
+    color: red;
+  }
+}
+
+@keyframes cycle {
+  0% {
+    text-shadow: 0px 0px 100px rgba(11, 124, 199, 0.5);
+  }
+  20% {
+    text-shadow: 0px 0px 100px rgba(168, 11, 199, 0.5);
+  }
+  40% {
+    text-shadow: 0px 0px 100px rgba(11, 199, 96, 0.5);
+  }
+  60% {
+    text-shadow: 0px 0px 100px rgba(199, 11, 11, 0.5);
+  }
+  80% {
+    text-shadow: 0px 0px 100px rgba(199, 96, 11, 0.5);
+  }
+}
+
+.navmenu {
+  display: "flex";
+  align-items: "center";
+  gap: "10px";
+}
+
+#pie-table {
+  display: none;
+}
+
+.btn-excel {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.btn-excel > button {
+  margin-left: 10px;
+}
+
+/* หน้าจอเล็ก */
+@media only screen and (max-width: 600px) {
+  .MuiTypography-root {
+    font-size: 1.5rem;
+  }
+}
+
+/* หน้าจอขนาดกลาง */
+@media only screen and (min-width: 601px) {
+  .MuiTypography-root {
+    font-size: 2rem;
+  }
+}
+@media only screen and (max-width: 360px) {
+  .User  {
+    font-size: 1px;
+    margin: 2px
+  }
+ .AppHeader .MuiTypography-root {
+  font-size: 1px;
+ }
+
+}
+.custom-table-header {
+  background-color: #000; // กำหนดสีหัวข้อตารางที่คุณต้องการ
+}
+
+.table-row-light {
+  background-color: #ffffff;
+}
+.table-row-dark {
+  background-color:rgb(222, 226, 230);
+}
+
+
+.editor-container{
+   overflow-y: scroll;
+   resize: vertical;
+   display: block;
+   /* border-top-left-radius: 0.5em;
+   border-top-right-radius: 0.5em;
+   height: 20vh */
+} 
+
+
+.btn-reserve:disabled {
+  cursor: not-allowed! important;
+}
+/* 
+.css-wa5fuu-MuiListItemIcon-root {
+  color: white
+} */
+
+.id-list {
+  line-height: 1.5; /* Adjust line height as needed */
+}
+
+.numbers {
+  white-space: pre-line; /* Ensures that the browser respects newline characters in text */
+}
+
+@keyframes bounceIn {
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  50% {
+    transform: translateY(-10%);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* ปรับความเร็ว */
+.animated-text span {
+  display: inline-block;
+  opacity: 0;
+  animation: bounceIn 0.8s ease forwards; /* เปลี่ยนค่า duration ที่นี่ (0.8s) */
+  font-family: 'Rye';
+}
+
+/* หน่วงเวลาในการแสดงผลตัวอักษรทีละตัว */
+.animated-text span:nth-child(1) {
+  animation-delay: 0.1s; /* ปรับ delay ตามต้องการ */
+}
+
+.animated-text span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.animated-text span:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+/* ปรับ nth-child ตามจำนวนตัวอักษรที่มี */
+
+
+//ทีละตัว
+.animated-text span {
+  opacity: 0;
+  display: inline-block;
+  animation: typing 0.5s forwards;
+}
+
+@keyframes typing {
+  to {
+    opacity: 1;
+  }
+}
+
+
+img {
+  width: 100%;
+  height: 100vh; /* ให้ขยายเต็มหน้าจอแนวตั้ง */
+  object-fit: cover; /* ปรับภาพให้ไม่ผิดเพี้ยน */
+}
+
+

@@ -86,6 +86,8 @@ const ListUser = () => {
 
     const checked = e.target.checked
     console.log(`⩇⩇:⩇⩇🚨  file: ListUser.jsx:88  checked :`, checked);
+    console.log(`⩇⩇:⩇⩇🚨  file: ListUser.jsx:88  checked :`, checked);
+    console.log(`⩇⩇:⩇⩇🚨  file: ListUser.jsx:88  checked :`, checked);
 
     const value = {
       id: id,

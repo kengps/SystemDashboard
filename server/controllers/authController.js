@@ -3,8 +3,10 @@ const registers = require("../models/register");
 const jwt = require("jsonwebtoken");
 const { expressjwt: exJwt } = require("express-jwt");
 
+
 const bcrypt = require("bcryptjs");
 const { getIP } = require("./ip");
+const Room = require("../models/room");
 
 exports.logged = async (req, res) => {
   try {
@@ -14,12 +16,12 @@ exports.logged = async (req, res) => {
     console.log(req.body);
     // const user =  await Users.find
     const user = await User.findOneAndUpdate({ username }, { ipAddress: ip }, { new: true });
-    
+
     if (user && user.enabled) {
       //check password ระหว่าง password ปกติ และ password ที่มีการใส่รหัส
       const isMatch = await bcrypt.compare(password, user.password);
-      
-     
+
+
       if (!isMatch) {
         return res.status(401).json({ error: "Password Invalid" });
       }
@@ -50,7 +52,7 @@ exports.loggedLine = async (req, res) => {
 
   try {
     const ip = await getIP(req)
-    
+
     const { userId, displayName, pictureUrl } = req.body
 
     let data = {
@@ -124,7 +126,7 @@ exports.loggedFacebook = async (req, res) => {
 
 
 exports.currentUser = async (req, res) => {
-console.log("➡️  file: authController.js:127  req:", req.user)
+  console.log("➡️  file: authController.js:127  req:", req.user)
 
   try {
     const user = await User.findOne({ username: req.user.username })
@@ -138,3 +140,28 @@ console.log("➡️  file: authController.js:127  req:", req.user)
   }
 };
 
+
+exports.createRoom = async (req, res) => {
+  try {
+    const { rooms } = req.body; // รับข้อมูลห้องจาก Frontend
+    console.log(`⩇⩇:⩇⩇🚨  file: authController.js:147  req.body :`, req.body);
+
+    console.log(`⩇⩇:⩇⩇🚨  file: authController.js:147  rooms :`, rooms);
+
+    try {
+      const savedRooms = await Room.insertMany(rooms.map(room => ({
+        floor: room.floor,
+        roomNumber: room.roomNumber,
+        status: 'available' // ตั้งค่าสถานะห้องว่าง
+      })));
+      console.log(`⩇⩇:⩇⩇🚨  file: authController.js:153  savedRooms :`, savedRooms);
+
+      
+      res.status(201).json(savedRooms);
+    } catch (error) {
+      res.status(400).json({ message: error.message });
+    }
+  } catch (error) {
+
+  }
+}
